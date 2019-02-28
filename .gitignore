@@ -1,0 +1,16 @@
+# general
+.
+..
+__pycache__
+*.pyc
+
+# python virtual env
+36
+
+
+# django
+db.sqlite3
+
+
+# others
+history_tmp.log
