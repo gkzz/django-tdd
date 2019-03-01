@@ -25,9 +25,8 @@ class NewVisitorTest(unittest.TestCase):
 
         self.driver.get(LOCAL_HOST_URL)
         try:
-            #self.assertIn('To-Do', self.driver.title)
-            self.assertIn('Django', self.driver.title)
-        #except Exception as e:
+            self.assertIn('To-Do', self.driver.title)
+            #self.assertIn('Django', self.driver.title)
         except:
             self.fail('fail the test')
 
