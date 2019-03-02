@@ -18,7 +18,8 @@ driver = webdriver.Chrome(
 )
 driver.get(LOCAL_HOST_URL)
 
-assert 'Django' in driver.title
+#assert 'Django' in driver.tile, "driver.title was " + driver.title
+assert 'To-Do' in driver.title, "driver.title was " + driver.title 
 
 end = time.time()
 print("process {0} ms".format((end - start) * 1000))
