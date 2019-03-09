@@ -7,4 +7,5 @@ from django.http import HttpResponse
 
 def home_page(request):
 #    pass
-     return HttpResponse()
+#    return HttpResponse()
+    return HttpResponse('<html><title>Django-tdd</title></html>')

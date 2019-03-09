@@ -25,7 +25,7 @@ class HomePageTest(TestCase):
         
         try:
             self.assertTrue( html.startswith('<html>'))
-            self.assertIn('<title>To-Do lists</title>', html)
-            self.assertEqual('<html><title>To-Do lists</title></html>', html)
+            self.assertIn('<title>Django-tdd</title>', html)
+            self.assertEqual('<html><title>Django-tdd</title></html>', html)
         except:
             self.fail(' Finish the test!')
