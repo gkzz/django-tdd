@@ -28,4 +28,4 @@ class HomePageTest(TestCase):
             self.assertIn('<title>Django-tdd</title>', html)
             self.assertEqual('<html><title>Django-tdd</title></html>', html)
         except:
-            self.fail(' Finish the test!')
+            self.fail('Finish the test!')
