@@ -13,11 +13,31 @@ class HomePageTest(TestCase):
         request = HttpRequest()
         response = home_page(request)
         html = response.content.decode('utf8')
-    
-        
+           
         try:
             self.assertTrue( html.startswith('<html>'))
-            self.assertIn('<title>Django-tdd</title>', html)
             self.assertEqual('<html><title>Django-tdd</title></html>', html)
         except:
             self.fail('Finish the test!')
+    
+
+    def test_home_page_returns_correct_html_for_loop(self):
+        request = HttpRequest()
+        response = home_page(request)
+        html = response.content.decode('utf8')
+
+        test_args_list = [
+            # self.assertIn(X, Y) check "Y in X"
+            ("<html>", html),  
+            ("<html><title>Django", html),  
+            ("<html><title>Error", html),
+            ("<html><title>Django-tdd", html),
+            ("<html><title>Django-tdd</title></html>", html),
+            ("<html><title>Django-tdd</title></html><body><h1>This is error!</h1></body>", html),
+        ]
+        
+        for x,  y in test_args_list:
+            with self.subTest(x=x, y=y):
+                self.assertIn(x, y)
+            
+        
