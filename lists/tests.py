@@ -30,10 +30,10 @@ class HomePageTest(TestCase):
             # self.assertIn(X, Y) check "Y in X"
             ("<html>", html),  
             ("<html><title>Django", html),  
-            ("<html><title>Error", html),
+            #("<html><title>Error", html),
             ("<html><title>Django-tdd", html),
             ("<html><title>Django-tdd</title></html>", html),
-            ("<html><title>Django-tdd</title></html><body><h1>This is error!</h1></body>", html),
+            #("<html><title>Django-tdd</title></html><body><h1>This is error!</h1></body>", html),
         ]
         
         for x,  y in test_args_list:
