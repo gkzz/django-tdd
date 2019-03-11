@@ -15,8 +15,8 @@ class HomePageTest(TestCase):
         html = response.content.decode('utf8')
            
         try:
-            self.assertTrue( html.startswith('<html>'))
-            self.assertEqual('<html><title>Django-tdd</title></html>', html)
+            self.assertTrue( html.startswith('<!DOCTYPE html>'))
+            #self.assertEqual('<title>Django-tdd</title>', html)
         except:
             self.fail('Finish the test!')
     
@@ -28,11 +28,10 @@ class HomePageTest(TestCase):
 
         test_args_list = [
             # self.assertIn(X, Y) check "Y in X"
-            ("<html>", html),  
-            ("<html><title>Django", html),  
+            ("<!DOCTYPE html>", html),  
             #("<html><title>Error", html),
-            ("<html><title>Django-tdd", html),
-            ("<html><title>Django-tdd</title></html>", html),
+            ("<title>Django-tdd", html),
+            #("<html><title>Django-tdd</title></html>", html),
             #("<html><title>Django-tdd</title></html><body><h1>This is error!</h1></body>", html),
         ]
         
