@@ -32,7 +32,7 @@ class NewVisitorTest(unittest.TestCase):
         self.driver.get(LOCAL_HOST_URL)
         try:
             #self.assertIn('To-Do', self.driver.title)
-            self.assertIn('Django', self.driver.title)
+            self.assertIn('Django-tdd', self.driver.title)
             header_text = self.driver.find_element_by_tag_name('h1').text
             self.assertIn('To-Do', header_text)
 
