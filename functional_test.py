@@ -27,7 +27,7 @@ class NewVisitorTest(unittest.TestCase):
         self.driver.quit()
 
     def test_can_start_a_list_and_retrieve_it_later(self):
-        LOCAL_HOST_URL = 'http://127.0.0.1:8000/'
+        LOCAL_HOST_URL = 'http://127.0.0.1:8000'
 
         self.driver.get(LOCAL_HOST_URL)
         try:
@@ -54,9 +54,13 @@ class NewVisitorTest(unittest.TestCase):
 
             table = self.driver.find_element_by_id('id_list_table')
             rows = table.find_elements_by_tag_name('tr')
+            # self.assertTrue(
+            #     any(row.text == '1: Buy peacock feathers' for row in rows),
+            #     "New to-do item did not appear in table"
+            # )
             self.assertTrue(
-                any(row.text == '1: Buy peacock feathers' for row in rows),
-                "New to-do item did not appear in table"
+                any(row.text == '1: Buy peacock feathers' for row in rows), 
+                f" New to-do item did not appear in table. Contents were:\ n{ table.text}" 
             )
         except:
             self.fail('fail the test')
