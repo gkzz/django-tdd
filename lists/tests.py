@@ -11,5 +11,4 @@ class HomePageTest(TestCase):
             '/', data ={'item_text': 'A new list item'}
         )
         self.assertIn('A new list item', response.content.decode())
-        self.assertTemplateUsed(response, 'home.html')
         
