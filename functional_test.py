@@ -53,7 +53,6 @@ class NewVisitorTest(unittest.TestCase):
         except:
             self.fail('fail the test')
         
-        
 
 
 if __name__ == '__main__':
