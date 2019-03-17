@@ -26,32 +26,43 @@ class NewVisitorTest(unittest.TestCase):
     def tearDown(self):
         self.driver.quit()
 
-    def test_can_start_a_list_and_retrieve_it_later(self):
-        LOCAL_HOST_URL = 'http://127.0.0.1:8000'
-
-        self.driver.get(LOCAL_HOST_URL)
+    
+    def check_for_row_in_list_table(self, row_text):
         try:
-            #self.assertIn('To-Do', self.driver.title)
-            self.assertIn('Django-tdd', self.driver.title)
-            header_text = self.driver.find_element_by_tag_name('h1').text
-            self.assertIn('To-Do', header_text)
-
-            # She is invited to enter a to-do item straight away
-            inputbox = self.driver.find_element_by_id('id_new_item')
-            inputbox.send_keys('Use peacock feathers to make a fly')
-            inputbox.send_keys(Keys.ENTER)
-            time.sleep(1)
-
-            table = self.driver.find_element_by_id('id_list_table')
-            rows = table.find_elements_by_tag_name('tr')
-            self.assertIn(
-                '1: Buy peacock feathers', [row.text for row in rows]
-            )
-            self.assertIn(
-                '2: Use peacock feathers to make a fly', [row.text for row in rows]
-            )
+            table = self.browser.find_element_by_id('id_list_table') 
+            rows = table.find_elements_by_tag_name('tr') 
+            self.assertIn(row_text, [row.text for row in rows])
         except:
             self.fail('fail the test')
+
+
+#    def test_can_start_a_list_and_retrieve_it_later(self):
+#        LOCAL_HOST_URL = 'http://127.0.0.1:8000'
+#
+#        self.driver.get(LOCAL_HOST_URL)
+#        try:
+#            #self.assertIn('To-Do', self.driver.title)
+#            self.assertIn('Django-tdd', self.driver.title)
+#            header_text = self.driver.find_element_by_tag_name('h1').text
+#            self.assertIn('To-Do', header_text)
+#
+#            # She is invited to enter a to-do item straight away
+#            inputbox = self.driver.find_element_by_id('id_new_item')
+#            inputbox.send_keys('Use peacock feathers to make a fly')
+#            inputbox.send_keys(Keys.ENTER)
+#            time.sleep(1)
+#
+#            table = self.driver.find_element_by_id('id_list_table')
+#            rows = table.find_elements_by_tag_name('tr')
+#            self.assertIn(
+#                '1: Buy peacock feathers', [row.text for row in rows]
+#            )
+#            self.assertIn(
+#                '2: Use peacock feathers to make a fly', [row.text for row in rows]
+#            )
+#        except:
+#            self.fail('fail the test')
+
         
 
 
