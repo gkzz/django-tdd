@@ -45,4 +45,7 @@ class HomePageTest(TestCase):
             '/', data ={'item_text': 'A new list item'}
         )
         self.assertIn('A new list item', response.content.decode())
-        
+    
+    def test_only_saves_items_when_necessary(self):
+        self.client.get('/')
+        self.assertEqual(Item.objects.count(), 0)
