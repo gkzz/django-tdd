@@ -21,9 +21,6 @@ import time
 
 MAX_WAIT = 10
 
-
-
-#class NewVisitorTest(unittest.TestCase):
 class NewVisitorTest(LiveServerTestCase):
 
     def setUp(self):
@@ -56,6 +53,10 @@ class NewVisitorTest(LiveServerTestCase):
     def test_can_start_a_list_for_one_user(self):
         try:
             self.driver.get(self.live_server_url)
+            
+            self.assertIn('Django-tdd', self.driver.title)
+            header_text = self.driver.find_element_by_tag_name('h1').text
+            self.assertIn('To-Do list',header_text)
 
             # She is invited to enter a to-do item straight away
             inputbox = self.driver.find_element_by_id('id_new_item')
@@ -84,7 +85,7 @@ class NewVisitorTest(LiveServerTestCase):
             #self.fail('Finished, and successful!')
         except:
             self.fail('Failed.')
-    
+    """
     def test_multiple_users_can_start_lists_at_different_urls(self):
         try:
             self.driver.get(self.live_server_url)
@@ -120,4 +121,5 @@ class NewVisitorTest(LiveServerTestCase):
             self.assertIn('Buy milk', page_text)
         except:
             self.fail('Failed.')
+    """
 
