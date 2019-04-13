@@ -49,6 +49,34 @@ VERSION_CODENAME=xenial
 UBUNTU_CODENAME=xenial
 ```
 
+## Bootstrap
+### sources
+https://blog.getbootstrap.com/2015/03/16/bootstrap-3-3-4-released
+
+### tree
+
+```
+$ tree static/bootstrap
+static/bootstrap
+├── css
+│   ├── bootstrap.css
+│   ├── bootstrap.css.map
+│   ├── bootstrap.min.css
+│   ├── bootstrap-theme.css
+│   ├── bootstrap-theme.css.map
+│   └── bootstrap-theme.min.css
+├── fonts
+│   ├── glyphicons-halflings-regular.eot
+│   ├── glyphicons-halflings-regular.svg
+│   ├── glyphicons-halflings-regular.ttf
+│   ├── glyphicons-halflings-regular.woff
+│   └── glyphicons-halflings-regular.woff2
+└── js
+    ├── bootstrap.js
+    ├── bootstrap.min.js
+    └── npm.js
+```
+
 
 
 ### If you face trouble...
